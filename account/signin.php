@@ -1,9 +1,18 @@
-<?php require_once $_SERVER["DOCUMENT_ROOT"].'/includes/header.php'; ?>
+<?php 
+    require_once $_SERVER["DOCUMENT_ROOT"].'/includes/header.php'; 
+
+    if(LoginFilter::isLoggedIn())
+    {
+        header('Location: /account/profile.php');
+    }
+?>
 
 <!-- Content: Sign In Form -->
     <div class="container mt-4">
         <h2>Sign In</h2>
+        <p style="color:red;"><?php if(isset($_REQUEST['error_msg'])) echo $_REQUEST['error_msg'];?></p>
         <p style="color:green;"><?php if(isset($_REQUEST['msg'])) echo $_REQUEST['msg'];?></p>
+       
         <form method="POST" action="/authentication.php">
             <div class="form-group">
                 <label for="email">Email address</label>

@@ -1,3 +1,5 @@
+<?php require_once $_SERVER["DOCUMENT_ROOT"].'/login-filter.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,7 @@
         <!-- Left Side: Home and About Buttons -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="./">Home</a>
+                <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
@@ -26,10 +28,10 @@
         <!-- Right Side: Sign In and Sign Up Buttons -->
         <ul class="navbar-nav ml-auto" id="signBtn">
             <li class="nav-item">
-                <a class="nav-link" href="./signin.php">Sign In</a>
+                <a class="nav-link" href="/account/signin.php">Sign In</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./signup.php">Sign Up</a>
+                <a class="nav-link" href="/account/signup.php">Sign Up</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto" id="profile" style="display: none;">
