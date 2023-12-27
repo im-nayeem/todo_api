@@ -13,7 +13,7 @@
         
         if(!$auth->getUserByEmail($email)->emailVerified)
         {
-            $page = "/signin.php?error_msg=Your email is not verified! Check your mail to verify you email address. You can login after email verification.";
+            $page = "/account/signin.php?error_msg=Your email is not verified! Check your mail to verify you email address. You can login after email verification.";
             header('Location: '.$page);
 
         }

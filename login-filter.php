@@ -17,6 +17,16 @@
             $iss = $verifiedToken->claims()->get('iss');
             if($iss !== "https://securetoken.google.com/todo-chrome-ext")
                 return false;
+
+            if(!isset($_SESSION['user']))
+            {
+                $user = $auth->getUser($verifiedToken->claims()->get('sub'));
+                $userInfo = [
+                    "name" => $user->displayName,
+                    "email" => $user->email
+                ];
+                $_SESSION['user'] = $userInfo;
+            }
             return true;
         }
         public static function isLoggedIn(){
@@ -31,11 +41,8 @@
                 
                 if(!LoginFilter::isValidIssuer($accessToken))
                     return false;
-                // if(!isset($_SESSION['uid']))
-                //     $_SESSION['uid'] =  $verifiedToken->claims()->get('sub');
 
-                echo $accessToken;
-            
+                
                 }catch(Exception $ex){
                     try{
                         $refreshToken = getRefreshTokenFromCookie();
@@ -50,8 +57,6 @@
                         if(!LoginFilter::isValidIssuer($signInResult->accessToken()))
                             return false;
                         
-                        echo $refreshToken.PHP_EOL;
-
                         setAccessTokenToCookie($signInResult->accessToken());
 
 

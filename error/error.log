@@ -1,0 +1,46 @@
+GuzzleHttp\Exception\ClientException: Client error: `POST https://oauth2.googleapis.com/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"Invalid JWT: Token must be a short-lived token (60 minutes) and in a reaso (truncated...)
+ in N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\Exception\RequestException.php:113
+Stack trace:
+#0 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\Middleware.php(72): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response), NULL, Array, NULL)
+#1 N:\PHP_API_with_JWT\vendor\guzzlehttp\promises\src\Promise.php(204): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 N:\PHP_API_with_JWT\vendor\guzzlehttp\promises\src\Promise.php(153): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), NULL)
+#3 N:\PHP_API_with_JWT\vendor\guzzlehttp\promises\src\TaskQueue.php(48): GuzzleHttp\Promise\Promise::GuzzleHttp\Promise\{closure}()
+#4 N:\PHP_API_with_JWT\vendor\guzzlehttp\promises\src\Promise.php(248): GuzzleHttp\Promise\TaskQueue->run(true)
+#5 N:\PHP_API_with_JWT\vendor\guzzlehttp\promises\src\Promise.php(224): GuzzleHttp\Promise\Promise->invokeWaitFn()
+#6 N:\PHP_API_with_JWT\vendor\guzzlehttp\promises\src\Promise.php(269): GuzzleHttp\Promise\Promise->waitIfPending()
+#7 N:\PHP_API_with_JWT\vendor\guzzlehttp\promises\src\Promise.php(226): GuzzleHttp\Promise\Promise->invokeWaitList()
+#8 N:\PHP_API_with_JWT\vendor\guzzlehttp\promises\src\Promise.php(62): GuzzleHttp\Promise\Promise->waitIfPending()
+#9 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\Client.php(124): GuzzleHttp\Promise\Promise->wait()
+#10 N:\PHP_API_with_JWT\vendor\google\auth\src\HttpHandler\Guzzle6HttpHandler.php(47): GuzzleHttp\Client->send(Object(GuzzleHttp\Psr7\Request), Array)
+#11 N:\PHP_API_with_JWT\vendor\google\auth\src\OAuth2.php(658): Google\Auth\HttpHandler\Guzzle6HttpHandler->__invoke(Object(GuzzleHttp\Psr7\Request))
+#12 N:\PHP_API_with_JWT\vendor\google\auth\src\Credentials\ServiceAccountCredentials.php(209): Google\Auth\OAuth2->fetchAuthToken(Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+#13 N:\PHP_API_with_JWT\vendor\google\auth\src\UpdateMetadataTrait.php(57): Google\Auth\Credentials\ServiceAccountCredentials->fetchAuthToken(Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+#14 N:\PHP_API_with_JWT\vendor\google\auth\src\Credentials\ServiceAccountCredentials.php(265): Google\Auth\CredentialsLoader->updateMetadata(Array, NULL, Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+#15 N:\PHP_API_with_JWT\vendor\google\auth\src\FetchAuthTokenCache.php(244): Google\Auth\Credentials\ServiceAccountCredentials->updateMetadata(Array, NULL, Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+#16 N:\PHP_API_with_JWT\vendor\google\auth\src\Middleware\AuthTokenMiddleware.php(138): Google\Auth\FetchAuthTokenCache->updateMetadata(Array, NULL, Object(Google\Auth\HttpHandler\Guzzle7HttpHandler))
+#17 N:\PHP_API_with_JWT\vendor\google\auth\src\Middleware\AuthTokenMiddleware.php(108): Google\Auth\Middleware\AuthTokenMiddleware->addAuthHeaders(Object(GuzzleHttp\Psr7\Request))
+#18 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\PrepareBodyMiddleware.php(64): Google\Auth\Middleware\AuthTokenMiddleware->Google\Auth\Middleware\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#19 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\Middleware.php(31): GuzzleHttp\PrepareBodyMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#20 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\RedirectMiddleware.php(71): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#21 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\Middleware.php(66): GuzzleHttp\RedirectMiddleware->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#22 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\HandlerStack.php(75): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Request), Array)
+#23 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\Client.php(333): GuzzleHttp\HandlerStack->__invoke(Object(GuzzleHttp\Psr7\Request), Array)
+#24 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\Client.php(169): GuzzleHttp\Client->transfer(Object(GuzzleHttp\Psr7\Request), Array)
+#25 N:\PHP_API_with_JWT\vendor\guzzlehttp\guzzle\src\Client.php(189): GuzzleHttp\Client->requestAsync('POST', Object(GuzzleHttp\Psr7\Uri), Array)
+#26 N:\PHP_API_with_JWT\vendor\kreait\firebase-php\src\Firebase\Auth\ApiClient.php(227): GuzzleHttp\Client->request('POST', 'getAccountInfo', Array)
+#27 N:\PHP_API_with_JWT\vendor\kreait\firebase-php\src\Firebase\Auth\ApiClient.php(78): Kreait\Firebase\Auth\ApiClient->requestApi('getAccountInfo', Array)
+#28 N:\PHP_API_with_JWT\vendor\kreait\firebase-php\src\Firebase\Auth.php(174): Kreait\Firebase\Auth\ApiClient->getUserByEmail('hnayeem520@gmai...')
+#29 N:\PHP_API_with_JWT\authentication.php(14): Kreait\Firebase\Auth->getUserByEmail(Object(Kreait\Firebase\Value\Email))
+#30 {main}
+
+Next Kreait\Firebase\Exception\Auth\AuthError: invalid_grant in N:\PHP_API_with_JWT\vendor\kreait\firebase-php\src\Firebase\Exception\AuthApiExceptionConverter.php:132
+Stack trace:
+#0 N:\PHP_API_with_JWT\vendor\kreait\firebase-php\src\Firebase\Exception\AuthApiExceptionConverter.php(47): Kreait\Firebase\Exception\AuthApiExceptionConverter->convertGuzzleRequestException(Object(GuzzleHttp\Exception\ClientException))
+#1 N:\PHP_API_with_JWT\vendor\kreait\firebase-php\src\Firebase\Auth\ApiClient.php(229): Kreait\Firebase\Exception\AuthApiExceptionConverter->convertException(Object(GuzzleHttp\Exception\ClientException))
+#2 N:\PHP_API_with_JWT\vendor\kreait\firebase-php\src\Firebase\Auth\ApiClient.php(78): Kreait\Firebase\Auth\ApiClient->requestApi('getAccountInfo', Array)
+#3 N:\PHP_API_with_JWT\vendor\kreait\firebase-php\src\Firebase\Auth.php(174): Kreait\Firebase\Auth\ApiClient->getUserByEmail('hnayeem520@gmai...')
+#4 N:\PHP_API_with_JWT\authentication.php(14): Kreait\Firebase\Auth->getUserByEmail(Object(Kreait\Firebase\Value\Email))
+#5 {main}
+2023-12-27 10:51:32
+
