@@ -1,14 +1,12 @@
 <?php 
 
-	/*Security*/
-	define('SECRETE_KEY', 'test123');
-	
 	/*Data Type*/
 	define('BOOLEAN', 	'1');
 	define('INTEGER', 	'2');
 	define('STRING', 	'3');
 
 	/*Error Codes*/
+	define('UNAUTHORIZED_ACCESS',					401);
 	define('REQUEST_METHOD_NOT_VALID',		        100);
 	define('REQUEST_CONTENTTYPE_NOT_VALID',	        101);
 	define('REQUEST_NOT_VALID', 			        102);

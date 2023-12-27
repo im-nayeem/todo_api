@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" pattern=".{8,} required>
             </div>
             <div class="form-group">
                 <label for="confirmPassword">Confirm Password</label>

@@ -22,6 +22,7 @@
         public static function isLoggedIn(){
             global $auth;
             try{
+                
                 $accessToken = getAccessTokenFromCookie();
                 if($accessToken == null)
                 {
@@ -32,10 +33,14 @@
                     return false;
                 // if(!isset($_SESSION['uid']))
                 //     $_SESSION['uid'] =  $verifiedToken->claims()->get('sub');
+
+                echo $accessToken;
             
                 }catch(Exception $ex){
                     try{
                         $refreshToken = getRefreshTokenFromCookie();
+                      
+                      
                         if($refreshToken == null)
                         {
                             return false;
@@ -45,6 +50,8 @@
                         if(!LoginFilter::isValidIssuer($signInResult->accessToken()))
                             return false;
                         
+                        echo $refreshToken.PHP_EOL;
+
                         setAccessTokenToCookie($signInResult->accessToken());
 
 
