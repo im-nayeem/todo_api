@@ -1,4 +1,13 @@
 {
+    "config": {
+
+        "platform": {
+      
+          "php": "8.0"
+      
+        }
+      
+      },
     "require": {
         "kreait/firebase-php": "^5.26"
     }

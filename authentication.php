@@ -22,8 +22,8 @@
                 
                 $signInResult = $auth->signInWithEmailAndPassword($email, $pass);
                 $refreshToken = $signInResult->refreshToken();
-                // setAccessTokenToCookie($signInResult->accessToken());
-                // setRefreshTokenToCookie($signInResult->refreshToken());
+                setAccessTokenToCookie($signInResult->accessToken());
+                setRefreshTokenToCookie($signInResult->refreshToken());
                 header('Location: /');
 
             }catch(Exception $e)
