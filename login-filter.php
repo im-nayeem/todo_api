@@ -17,13 +17,14 @@
             $iss = $verifiedToken->claims()->get('iss');
             if($iss !== "https://securetoken.google.com/todo-chrome-ext")
                 return false;
-
+           
             if(!isset($_SESSION['user']))
             {
                 $user = $auth->getUser($verifiedToken->claims()->get('sub'));
                 $userInfo = [
                     "name" => $user->displayName,
-                    "email" => $user->email
+                    "email" => $user->email,
+                    "uid" => $verifiedToken->claims()->get('sub')
                 ];
                 $_SESSION['user'] = $userInfo;
             }

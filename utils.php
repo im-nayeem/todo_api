@@ -26,5 +26,9 @@
     function setRefreshTokenToCookie($token){
         setcookie('ref_token', $token, time() + 30*24*3600, '/', '',  httponly:true);
     }
+    function resetTokenInCookie(){
+        setcookie('access_token', "", time() - 3600, '/', '',  httponly:true);
+        setcookie('ref_token', "", time() - 3600, '/', '',  httponly:true);
+    }
 
 ?>

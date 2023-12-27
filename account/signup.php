@@ -1,5 +1,11 @@
-<?php require_once $_SERVER["DOCUMENT_ROOT"].'/includes/header.php'; ?>
+<?php 
+    require_once $_SERVER["DOCUMENT_ROOT"].'/includes/header.php'; 
 
+    if(LoginFilter::isLoggedIn())
+    {
+        header('Location: /account/profile.php');
+    }
+?>
     <!-- Content: Sign Up Form -->
     <div class="container mt-4">
         <h2>Sign Up</h2>
