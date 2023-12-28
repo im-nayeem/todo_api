@@ -8,7 +8,7 @@
 	/*Error Codes*/
 	define('UNAUTHORIZED_ACCESS',					401);
 	define('REQUEST_METHOD_NOT_VALID',		        100);
-	define('REQUEST_CONTENTTYPE_NOT_VALID',	        101);
+	define('REQUEST_CONTENT_NOT_VALID',	        	101);
 	define('REQUEST_NOT_VALID', 			        102);
     define('VALIDATE_PARAMETER_REQUIRED', 			103);
 	define('VALIDATE_PARAMETER_DATATYPE', 			104);

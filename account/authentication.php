@@ -1,4 +1,7 @@
 <?php
+
+use Kreait\Firebase\Exception\Auth\UserNotFound;
+
     require_once $_SERVER["DOCUMENT_ROOT"].'/config/config.php';
     require_once $_SERVER["DOCUMENT_ROOT"].'/utils.php';
     
@@ -24,16 +27,23 @@
                 $refreshToken = $signInResult->refreshToken();
                 setAccessTokenToCookie($signInResult->accessToken());
                 setRefreshTokenToCookie($signInResult->refreshToken());
+                LoginFilter::isLoggedIn();
                 header('Location: /');
 
             }catch(Exception $e)
             {
                 log_error($e);
-                $errPage = "/signin.php?error_msg=Wrong email or password!";
+                $errPage = "/account/signin.php?error_msg=Wrong email or password!";
                 header('Location: '.$errPage);
             }
         }
-    } catch(Exception $e){
+    } catch(UserNotFound $ex)
+    {
+        log_error($e);
+        $errPage = "/account/signin.php?error_msg=User not found! Please sign up to continue.";
+        header('Location: '.$errPage);
+    }
+     catch(Exception $e){
             log_error($e);
             $errPage = "/error/error.php?error_msg=Error occured while login.";
             header('Location: '.$errPage);

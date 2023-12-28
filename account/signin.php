@@ -13,7 +13,7 @@
         <p style="color:red;"><?php if(isset($_REQUEST['error_msg'])) echo $_REQUEST['error_msg'];?></p>
         <p style="color:green;"><?php if(isset($_REQUEST['msg'])) echo $_REQUEST['msg'];?></p>
        
-        <form method="POST" action="/authentication.php">
+        <form method="POST" action="/account/authentication.php">
             <div class="form-group">
                 <label for="email">Email address</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>

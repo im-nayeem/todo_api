@@ -35,5 +35,4 @@
     $firebaseAuth = Config::getInstance();
     $auth = $firebaseAuth->getAuth();
 
-
 ?>
