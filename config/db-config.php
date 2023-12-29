@@ -16,7 +16,7 @@
                 "projectId" => "todo-chrome-ext"
             ]);
     
-            $this->collectionReference = $this->firestore->collection('todo');
+            $this->collectionReference = $this->firestore->collection('ToDoList');
         }
     
         public static function getInstance()

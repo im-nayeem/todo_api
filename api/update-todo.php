@@ -9,15 +9,17 @@
         {
             parent::__construct();
            
-            $file = fopen("php://input", "r");
-            $this->data = stream_get_contents($file);
-
+            $this->data = file_get_contents("php://input");
             $this->validateRequest($this->data);
+            
         }
         public function updateToDo()
         {
             ToDoDAO::storeToDo($this->data);
+            $this->returnResponse(200, "Successfull");
         }
     }
+    $obj = new UpdateTodo();
+    $obj->updateToDo();
 
 ?>

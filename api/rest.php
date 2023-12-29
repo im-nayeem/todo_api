@@ -7,7 +7,6 @@
 
     header("Access-Control-Allow-Origin: http://127.0.0.1/*");
     header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
     class Rest{
         protected $data;
@@ -19,7 +18,9 @@
                 $this->throwError(UNAUTHORIZED_ACCESS, "Unauthorized Access!");
             
         }
-
+        /**
+         * @param $data json array, passed by user through POST
+         */
         public function validateRequest($data){
             if($_SERVER['CONTENT_TYPE'] !== "application/json"){
                 $this->throwError(REQUEST_CONTENT_NOT_VALID, "Content Type is not valid!");

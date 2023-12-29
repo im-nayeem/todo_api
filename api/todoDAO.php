@@ -11,21 +11,25 @@
             else 
                 return null;
         }
+        /**
+         * store tasklist in firestore
+         * @param $todos array(taskList) of json objects(tasks)
+         */
         public static function storeToDo($todos){
             global $collectionRef;
             $document = $collectionRef->document($_SESSION['user']['email']);
             $document->set([
-                "time" => time(),
                 "data" => $todos
             ]);
         }
+        /**
+         * @param $email user email
+         */
         public static function createDocument($email){
             global $collectionRef;
             $document = $collectionRef->document($email);
-            $data = ["timestamp" => '12:00 PM', "task" => "Do this"];
             $document->set([
-                "time" => time(),
-                "data" => ""
+                "data" => json_encode(["updateTime" => time(), "todo" => null])
             ]);
         }
     }

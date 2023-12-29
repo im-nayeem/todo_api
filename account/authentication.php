@@ -4,6 +4,8 @@ use Kreait\Firebase\Exception\Auth\UserNotFound;
 
     require_once $_SERVER["DOCUMENT_ROOT"].'/config/config.php';
     require_once $_SERVER["DOCUMENT_ROOT"].'/utils.php';
+    require_once $_SERVER["DOCUMENT_ROOT"].'/login-filter.php';
+
     
     try{
 
