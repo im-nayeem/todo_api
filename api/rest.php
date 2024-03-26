@@ -26,13 +26,8 @@
                 $this->throwError(REQUEST_CONTENT_NOT_VALID, "Content Type is not valid!");
             }
             $decodedData = json_decode($data);
-            if($decodedData === null || !is_array($decodedData)) {
-                $this->throwError(REQUEST_CONTENT_NOT_VALID, "Content is not a valid JSON array!");
-            }
-            foreach($decodedData as $item) {
-                if (!is_object($item)) {
-                    $this->throwError(REQUEST_CONTENT_NOT_VALID, "Each element in the array must be a JSON object!");
-                }
+            if($decodedData === null || !is_object($decodedData)) {
+                $this->throwError(REQUEST_CONTENT_NOT_VALID, "Content is not a valid JSON object!");
             }
         }
 
