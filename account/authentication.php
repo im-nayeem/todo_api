@@ -26,9 +26,12 @@ use Kreait\Firebase\Exception\Auth\UserNotFound;
             try{
                 
                 $signInResult = $auth->signInWithEmailAndPassword($email, $pass);
+                $accesToken = $signInResult->accessToken();
                 $refreshToken = $signInResult->refreshToken();
-                setAccessTokenToCookie($signInResult->accessToken());
-                setRefreshTokenToCookie($signInResult->refreshToken());
+                log_error($accesToken);
+                log_error($refreshToken);
+                setAccessTokenToCookie($accesToken);
+                setRefreshTokenToCookie($refreshToken);
                 LoginFilter::isLoggedIn();
                 header('Location: /');
 

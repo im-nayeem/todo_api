@@ -22,9 +22,11 @@
     }
     function setAccessTokenToCookie($token){
         setcookie('access_token', $token, time() + 30*24*3600, '/', '',  httponly:true);
+        log_error("access token is set");
     }
     function setRefreshTokenToCookie($token){
         setcookie('ref_token', $token, time() + 30*24*3600, '/', '',  httponly:true);
+        log_error("refresh token is set");
     }
     function resetTokenInCookie(){
         setcookie('access_token', "", time() - 3600, '/', '',  httponly:true);

@@ -33,10 +33,10 @@
         public static function isLoggedIn(){
             global $auth;
             try{
-                
                 $accessToken = getAccessTokenFromCookie();
                 if($accessToken == null)
                 {
+                    log_error("Access token is null");
                     throw new Exception("Not Found!", 404);
                 }
                 
@@ -46,11 +46,12 @@
                 
                 }catch(Exception $ex){
                     try{
+                        log_error($ex->getMessage());
                         $refreshToken = getRefreshTokenFromCookie();
-                      
                       
                         if($refreshToken == null)
                         {
+                            log_error("Refresh token is null!!!");
                             return false;
                         }
                         $signInResult = $auth->signInWithRefreshToken($refreshToken);
