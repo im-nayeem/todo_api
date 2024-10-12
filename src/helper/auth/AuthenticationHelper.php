@@ -2,15 +2,25 @@
 namespace ToDo\Helper\Auth;
 
 use Throwable;
-use ToDo\AppConfig;
+use ToDo\Config\AppConfig;
 use ToDo\Utils\Utils;
 use ToDo\Context\AuthContext;
 
 class AuthenticationHelper {
-    public static function isVerifiedEmail()
+    public static function isVerifiedEmail($email)
     {
-
+        try {
+            $auth = AuthContext::getInstance();
+            $user = $auth->getUserByEmail($email)->emailVerified;
+            if($user) {
+                return true;
+            }
+        } catch(Throwable $ex) {
+            Utils::log_error($ex->getMessage());
+            return false;
+        }
     }
+
     public static function hasValidAccessToken()
     {
         $auth = AuthContext::getInstance();
@@ -25,17 +35,6 @@ class AuthenticationHelper {
             return true;
         } catch(Throwable  $ex) {
             Utils::log_error($ex->getMessage());
-            return false;
-        }
-    }
-
-    public static function isValidRefreshToken($refreshToken)
-    {
-        try {
-            $auth = AuthContext::getInstance();;
-            
-        } catch(Throwable $ex) {
-            log_error($ex->getMessage());
             return false;
         }
     }
@@ -79,7 +78,6 @@ class AuthenticationHelper {
         return null;
     }
 
-
     private static function setUserSession($verifiedToken)
     {
         if(!isset($_SESSION))
@@ -95,7 +93,6 @@ class AuthenticationHelper {
             ];
             $_SESSION['user'] = $userInfo;
         }
-    }
-    
+    } 
 
 }

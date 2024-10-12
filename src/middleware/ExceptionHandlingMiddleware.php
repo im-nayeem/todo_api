@@ -8,7 +8,7 @@ use ToDo\Utils\Utils;
 
 class ExceptionHandlingMiddleware implements MiddlewareInterface
 {
-    protected static $instance = null;
+    private static $instance = null;
     private function __construct() {
     }
     public static function getInstance() 

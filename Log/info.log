@@ -1,31 +1,64 @@
-Request: GET /
-2024-10-12 10:30:07
+MiddleWare Pipleline Instance Created.
+2024-10-12 14:17:21
 
-Request: GET /
-2024-10-12 10:32:52
+AuthMiddleware Instance Created
+2024-10-12 14:17:21
 
-Request: GET /
-Remote Address: ::1 Remote Host: 
-Remote User: 
-2024-10-12 10:35:42
-
-Request: GET /
+Request: GET /api/auth/signup
 Remote Address: ::1
-2024-10-12 10:57:42
+2024-10-12 14:17:21
 
-Request: GET /
-Remote Address: ::1
-2024-10-12 11:11:57
+Middleware Pipeline Instance Destroyed.
+2024-10-12 14:17:21
 
-Request: GET /ap/refresh-access-token
-Remote Address: ::1
-2024-10-12 11:22:29
+AuthMiddleware Instance destroyed
+2024-10-12 14:17:21
 
-Request: GET /ap/refresh-access-token
-Remote Address: ::1
-2024-10-12 11:24:32
+MiddleWare Pipleline Instance Created.
+2024-10-12 14:18:47
 
-Request: GET /ap/refresh-access-token
+AuthMiddleware Instance Created
+2024-10-12 14:18:47
+
+Request: GET /api/auth/signup
 Remote Address: ::1
-2024-10-12 11:27:13
+2024-10-12 14:18:47
+
+Middleware Pipeline Instance Destroyed.
+2024-10-12 14:19:01
+
+AuthMiddleware Instance destroyed
+2024-10-12 14:19:01
+
+MiddleWare Pipleline Instance Created.
+2024-10-12 14:20:25
+
+AuthMiddleware Instance Created
+2024-10-12 14:20:25
+
+Request: GET /api/auth/signup
+Remote Address: ::1
+2024-10-12 14:20:25
+
+Middleware Pipeline Instance Destroyed.
+2024-10-12 14:20:43
+
+AuthMiddleware Instance destroyed
+2024-10-12 14:20:43
+
+MiddleWare Pipleline Instance Created.
+2024-10-12 14:22:43
+
+AuthMiddleware Instance Created
+2024-10-12 14:22:43
+
+Request: GET /api/auth/signup
+Remote Address: ::1
+2024-10-12 14:22:43
+
+Middleware Pipeline Instance Destroyed.
+2024-10-12 14:24:24
+
+AuthMiddleware Instance destroyed
+2024-10-12 14:24:24
 

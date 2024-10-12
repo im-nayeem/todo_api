@@ -7,11 +7,13 @@ use ToDo\Helper\Auth\AuthenticationHelper;
 use ToDo\Helper\ResponseHelper;
 use ToDo\Middleware\Interface\MiddlewareInterface;
 use ToDo\ResponseStatus;
+use ToDo\Utils\Utils;
 
 class AuthMiddleware implements MiddlewareInterface
 {
-    protected static $instance = null;
+    private static $instance = null;
     private function __construct() {
+        Utils::log_info('AuthMiddleware Instance Created');
     }
     public static function getInstance() 
     {
@@ -25,7 +27,7 @@ class AuthMiddleware implements MiddlewareInterface
     {
         $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $bypassPaths = [
-            '/api/auth/refresh-access-token',
+            '/ap/refresh-access-token',
             '/api/auth/login',
             '/api/auth/signup',
             '/api/auth/reset-password'  
@@ -45,6 +47,11 @@ class AuthMiddleware implements MiddlewareInterface
 
     private function __clone()
     {
+    }
+
+    public function __destruct()
+    {
+        Utils::log_info('AuthMiddleware Instance destroyed');
     }
 }
 ?>

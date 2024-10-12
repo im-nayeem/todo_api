@@ -1,12 +1,16 @@
 <?php
 namespace ToDo\Pipeline;
+
+use ToDo\Utils\Utils;
+
 class MiddlewarePipeline
 {
-    protected static $instance = null;
-    protected $middlewares = [];
+    private static $instance = null;
+    private $middlewares = [];
 
     private function __construct()
     {
+        Utils::log_info('MiddleWare Pipleline Instance Created.');
     }
 
     public static function getInstance()
@@ -37,5 +41,10 @@ class MiddlewarePipeline
 
     private function __clone()
     {
+    }
+
+    public function __destruct()
+    {
+        Utils::log_info('Middleware Pipeline Instance Destroyed.');
     }
 }
