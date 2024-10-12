@@ -38,6 +38,7 @@
         
         public function returnResponse($status, $result){
             echo json_encode(["status" => $status, "result" => $result]);
+            exit;
         }
     }
 ?>

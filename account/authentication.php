@@ -20,7 +20,6 @@ use Kreait\Firebase\Exception\Auth\UserNotFound;
         {
             $page = "/account/signin.php?error_msg=Your email is not verified! Check your mail to verify you email address. You can login after email verification.";
             header('Location: '.$page);
-
         }
         else{
             try{
@@ -35,8 +34,7 @@ use Kreait\Firebase\Exception\Auth\UserNotFound;
                 LoginFilter::isLoggedIn();
                 header('Location: /');
 
-            }catch(Exception $e)
-            {
+            } catch(Exception $e) {
                 log_error($e);
                 $errPage = "/account/signin.php?error_msg=Wrong email or password!";
                 header('Location: '.$errPage);
@@ -48,7 +46,7 @@ use Kreait\Firebase\Exception\Auth\UserNotFound;
         $errPage = "/account/signin.php?error_msg=User not found! Please sign up to continue.";
         header('Location: '.$errPage);
     }
-     catch(Exception $e){
+     catch(Exception $e) {
             log_error($e);
             $errPage = "/error/error.php?error_msg=Error occured while login.";
             header('Location: '.$errPage);

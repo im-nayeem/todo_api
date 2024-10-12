@@ -1,12 +1,20 @@
 {
-    "config": {
-
-        "platform": {
-      
-          "php": "8.0"
-      
+  "name": "nayeem/php_middleware",
+    "autoload": {
+        "psr-4": {
+            "ToDo\\": "src/"
         }
-      
+    },
+    "authors": [
+        {
+            "name": "Nayeem Hossain",
+            "email": "nayeem.cse.cou@gmail.com"
+        }
+    ],
+    "config": {
+        "platform": {
+          "php": "8.0"
+        }
       },
     "require": {
         "kreait/firebase-php": "^5.26",
