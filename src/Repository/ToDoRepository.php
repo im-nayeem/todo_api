@@ -2,6 +2,7 @@
 namespace ToDo\Repository;
 
 use ToDo\Context\DatabaseContext;
+use ToDo\Models\Todo;
 
 class TodoRepository {
 
@@ -15,20 +16,8 @@ class TodoRepository {
     public function createTodo($userId, $todo) {
         $userRef = $this->db->collection('users')->document($userId);
         $userData = $userRef->snapshot()->data();
-        $todo = [
-            'task' => 'abcde',
-            'labels' => 'sjhuh',
-            'isDone' => false,
-            'timeStamp' => new \DateTime(),
-            'updatedAt' => new \DateTime()
-        ];
-        $newTodo = [
-            'task' => $todo['task'],
-            'labels' => $todo['labels'] ?? null,
-            'isDone' => $todo['isDone'],
-            'timeStamp' => $todo['timeStamp'] ?? null,
-            'updatedAt' => $todo['updatedAt'] ?? null
-        ];
+        $todo = new Todo("Task");
+        $newTodo = $todo->toArray();
 
         if ($userData && isset($userData['todos'])) {
             $userData['todos'][] = $newTodo;
