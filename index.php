@@ -1,5 +1,8 @@
 <?php
 
+require_once 'vendor/autoload.php';
+
+use ToDo\AbstractExecutor;
 use ToDo\Api\Auth\Login;
 use ToDo\Api\Auth\RefreshAccessToken;
 use ToDo\Helper\ResponseHelper;
@@ -13,15 +16,14 @@ use ToDo\ResponseStatus;
 header("Access-Control-Allow-Origin: http://127.0.0.1/*");
 header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE");
 
-require_once 'vendor/autoload.php';
 
 $pipeline = MiddlewarePipeline::getInstance();
 $pipeline->add(ExceptionHandlingMiddleware::getInstance());
 $pipeline->add(LogMiddleware::getInstance());
-$pipeline->add(AuthMiddleware::getInstance()); 
+// $pipeline->add(AuthMiddleware::getInstance()); 
 
-$execute = function($obj) {
-    $response = $obj->getResponse();
+$execute = function(AbstractExecutor $obj) {
+    $response = $obj->execute();
     ResponseHelper::generateResponse(ResponseStatus::OK, SUCCESS_RESPONSE, $response);
 };
 
@@ -37,6 +39,8 @@ $next = function() use ($execute) {
         $obj->createTodo('nayeem', null);
     } else if($_SERVER['REQUEST_URI'] === '/api/auth/login') {
         $execute(new Login());
+    } else {
+        echo "404 Not Found!";
     }
 };
 

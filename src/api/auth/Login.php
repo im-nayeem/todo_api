@@ -6,13 +6,19 @@ use Throwable;
 use ToDo\Api\AbstractRest;
 use ToDo\Context\AuthContext;
 use ToDo\Helper\Auth\AuthenticationHelper;
+use ToDo\Service\AuthenticationService;
 
 class Login extends AbstractRest
 {
+    private ?AuthenticationService $authService = null;
+    
+    public function __construct()
+    {
+        $this->authService = AuthenticationService::getInstance();    
+    }
     private function authenticate($email, $pass)
     {
         try {
-            $auth = AuthContext::getInstance();
             if(!AuthenticationHelper::isVerifiedEmail($email))
             {
                 return 

@@ -3,16 +3,19 @@ namespace ToDo\Middleware;
 
 require_once 'vendor/autoload.php';
 
-use ToDo\Helper\Auth\AuthenticationHelper;
 use ToDo\Helper\ResponseHelper;
 use ToDo\Middleware\Interface\MiddlewareInterface;
 use ToDo\ResponseStatus;
+use ToDo\Service\AuthenticationService;
 use ToDo\Utils\Utils;
 
 class AuthMiddleware implements MiddlewareInterface
 {
-    private static $instance = null;
+    private static ?AuthMiddleware $instance = null;
+    private ?AuthenticationService $authService = null;
+
     private function __construct() {
+        $this->authService = AuthenticationService::getInstance();
         Utils::log_info('AuthMiddleware Instance Created');
     }
     public static function getInstance() 
@@ -35,7 +38,7 @@ class AuthMiddleware implements MiddlewareInterface
         if (in_array($currentPath, $bypassPaths)) {
             return $next();
         }
-        $hasValidAccessToken = AuthenticationHelper::hasValidAccessToken();
+        $hasValidAccessToken = $this->authService->hasValidAccessToken();
         if(!$hasValidAccessToken) {
             $response = 'Invalid access token!';
             ResponseHelper::generateResponse(ResponseStatus::UNAUTHORIZED, UNAUTHORIZED_ACCESS, $response);

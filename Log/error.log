@@ -7,3 +7,33 @@ Class "ToDo\AppConfig" not found
 Access to undeclared static property ToDo\Context\DatabaseContext::$firestore
 2024-10-12 14:20:43
 
+Invalid service account: N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json can not be read: SplFileObject::__construct(N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json): Failed to open stream: No such file or directory
+2025-02-04 21:21:06
+
+Invalid service account: N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json can not be read: SplFileObject::__construct(N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json): Failed to open stream: No such file or directory
+2025-02-04 21:22:33
+
+Invalid service account: N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json can not be read: SplFileObject::__construct(N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json): Failed to open stream: No such file or directory
+2025-02-04 21:22:47
+
+Invalid service account: N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json can not be read: SplFileObject::__construct(N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json): Failed to open stream: No such file or directory
+2025-02-04 21:22:59
+
+Invalid service account: N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json can not be read: SplFileObject::__construct(N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json): Failed to open stream: No such file or directory
+2025-02-04 21:24:35
+
+Invalid service account: N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json can not be read: SplFileObject::__construct(N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json): Failed to open stream: No such file or directory
+2025-02-04 21:24:56
+
+Invalid service account: N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json can not be read: SplFileObject::__construct(N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json): Failed to open stream: No such file or directory
+2025-02-04 21:26:32
+
+Invalid service account: N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json can not be read: SplFileObject::__construct(N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json): Failed to open stream: No such file or directory
+2025-02-04 21:27:16
+
+Invalid service account: N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json can not be read: SplFileObject::__construct(N:\PHP_API_with_JWT/src/config/todo-chrome-ext-firebase-adminsdk-ilufb-b95cbe422f.json): Failed to open stream: No such file or directory
+2025-02-04 21:32:31
+
+The given token could not be parsed: The JWT string must have two dots
+2025-02-04 21:35:13
+

@@ -1,11 +1,13 @@
 <?php
 namespace ToDo\Api;
 
-abstract class AbstractRest
+use ToDo\AbstractExecutor;
+
+abstract class AbstractRest extends AbstractExecutor
 {
     public function __construct()
     {
         
     }
-    public abstract function getResponse();
+    protected abstract function getResponse();
 }
