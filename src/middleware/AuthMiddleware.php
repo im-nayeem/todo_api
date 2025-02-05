@@ -5,6 +5,7 @@ require_once 'vendor/autoload.php';
 
 use ToDo\Helper\ResponseHelper;
 use ToDo\Middleware\Interface\MiddlewareInterface;
+use ToDo\Models\Response;
 use ToDo\ResponseStatus;
 use ToDo\Service\AuthenticationService;
 use ToDo\Utils\Utils;
@@ -40,8 +41,12 @@ class AuthMiddleware implements MiddlewareInterface
         }
         $hasValidAccessToken = $this->authService->hasValidAccessToken();
         if(!$hasValidAccessToken) {
-            $response = 'Invalid access token!';
-            ResponseHelper::generateResponse(ResponseStatus::UNAUTHORIZED, UNAUTHORIZED_ACCESS, $response);
+            $response = new Response(
+                status: ResponseStatus::UNAUTHORIZED, 
+                responseCode: ResponseStatus::HTTP_UNAUTHORIZED, 
+                data: "Invalid Access Token"
+            );
+            ResponseHelper::generateResponse($response);
             exit;
         }
 

@@ -1,25 +1,30 @@
 <?php
 namespace ToDo\Api\Auth;
 
+use Override;
 use ToDo\Api\AbstractRest;
-use ToDo\Helper\Auth\AuthenticationHelper;
+use ToDo\Models\Response;
+use ToDo\Service\AuthenticationService;
 use ToDo\Utils\Utils;
 
 class RefreshAccessToken extends AbstractRest
 {
+    private ?AuthenticationService $authService = null;
     public function __construct()
     {
+        $this->authService = AuthenticationService::getInstance();
         Utils::log_info('RefreshAccessToken Instance Created.');
     }
     private function refreshAccessToken()
     {
-        $accessToken = AuthenticationHelper::refreshAccessToken();
+        $accessToken = $this->authService->refreshAccessToken();
         return $accessToken;
     } 
 
-    public function getResponse()
+    protected function getResponse(): Response
     {
-        return self::refreshAccessToken();
+        $response = self::refreshAccessToken();
+        return new Response(data: $response);
     }
 
     public function __destruct() {

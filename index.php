@@ -6,12 +6,12 @@ use ToDo\AbstractExecutor;
 use ToDo\Api\Auth\Login;
 use ToDo\Api\Auth\RefreshAccessToken;
 use ToDo\Helper\ResponseHelper;
+use ToDo\Home\Home;
 use ToDo\Middleware\AuthMiddleware;
 use ToDo\Middleware\ExceptionHandlingMiddleware;
 use ToDo\Middleware\LogMiddleware;
 use ToDo\Pipeline\MiddlewarePipeline;
 use ToDo\Repository\TodoRepository;
-use ToDo\ResponseStatus;
 
 header("Access-Control-Allow-Origin: http://127.0.0.1/*");
 header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE");
@@ -20,16 +20,16 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE");
 $pipeline = MiddlewarePipeline::getInstance();
 $pipeline->add(ExceptionHandlingMiddleware::getInstance());
 $pipeline->add(LogMiddleware::getInstance());
-// $pipeline->add(AuthMiddleware::getInstance()); 
+$pipeline->add(AuthMiddleware::getInstance()); 
 
 $execute = function(AbstractExecutor $obj) {
     $response = $obj->execute();
-    ResponseHelper::generateResponse(ResponseStatus::OK, SUCCESS_RESPONSE, $response);
+    ResponseHelper::generateResponse($response);
 };
 
 $next = function() use ($execute) {
-    if ($_SERVER['REQUEST_URI'] === '/home') {
-        echo "Welcome to the Home page!";
+    if ($_SERVER['REQUEST_URI'] === '/home' || $_SERVER['REQUEST_URI'] === '/') {
+        $execute(new Home());
     } else if($_SERVER['REQUEST_URI'] === '/api/auth/refresh-access-token') {  
         $execute(new RefreshAccessToken());
     } else if($_SERVER['REQUEST_URI'] === '/api/auth/reset-password') {

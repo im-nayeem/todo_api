@@ -232,3 +232,188 @@ Remote Address: ::1
 Middleware Pipeline Instance Destroyed.
 2025-02-04 21:37:14
 
+MiddleWare Pipleline Instance Created.
+2025-02-05 23:35:05
+
+Request: GET /
+Remote Address: ::1
+2025-02-05 23:35:12
+
+MiddleWare Pipleline Instance Created.
+2025-02-05 23:37:41
+
+Request: GET /
+Remote Address: ::1
+2025-02-05 23:37:42
+
+Middleware Pipeline Instance Destroyed.
+2025-02-05 23:38:17
+
+MiddleWare Pipleline Instance Created.
+2025-02-05 23:38:38
+
+Request: GET /
+Remote Address: ::1
+2025-02-05 23:38:40
+
+Middleware Pipeline Instance Destroyed.
+2025-02-05 23:39:26
+
+MiddleWare Pipleline Instance Created.
+2025-02-05 23:41:18
+
+Request: GET /
+Remote Address: ::1
+2025-02-05 23:41:26
+
+Middleware Pipeline Instance Destroyed.
+2025-02-05 23:41:48
+
+MiddleWare Pipleline Instance Created.
+2025-02-05 23:42:02
+
+Request: GET /
+Remote Address: ::1
+2025-02-05 23:42:13
+
+Middleware Pipeline Instance Destroyed.
+2025-02-05 23:42:55
+
+MiddleWare Pipleline Instance Created.
+2025-02-05 23:45:01
+
+Request: GET /
+Remote Address: ::1
+2025-02-05 23:45:01
+
+Middleware Pipeline Instance Destroyed.
+2025-02-05 23:45:36
+
+MiddleWare Pipleline Instance Created.
+2025-02-05 23:53:43
+
+Request: GET /
+Remote Address: ::1
+2025-02-05 23:53:43
+
+Middleware Pipeline Instance Destroyed.
+2025-02-05 23:54:22
+
+MiddleWare Pipleline Instance Created.
+2025-02-05 23:56:04
+
+Request: GET /
+Remote Address: ::1
+2025-02-05 23:56:04
+
+Middleware Pipeline Instance Destroyed.
+2025-02-05 23:56:08
+
+MiddleWare Pipleline Instance Created.
+2025-02-06 00:03:14
+
+Request: GET /
+Remote Address: ::1
+2025-02-06 00:03:14
+
+Middleware Pipeline Instance Destroyed.
+2025-02-06 00:03:40
+
+MiddleWare Pipleline Instance Created.
+2025-02-06 00:06:43
+
+Request: GET /api/auth/login
+Remote Address: ::1
+2025-02-06 00:06:43
+
+Middleware Pipeline Instance Destroyed.
+2025-02-06 00:06:51
+
+MiddleWare Pipleline Instance Created.
+2025-02-06 00:07:11
+
+Request: GET /api/auth/login
+Remote Address: ::1
+2025-02-06 00:07:11
+
+Middleware Pipeline Instance Destroyed.
+2025-02-06 00:07:43
+
+MiddleWare Pipleline Instance Created.
+2025-02-06 00:10:38
+
+Request: GET /api/auth/login
+Remote Address: ::1
+2025-02-06 00:10:38
+
+Middleware Pipeline Instance Destroyed.
+2025-02-06 00:11:04
+
+MiddleWare Pipleline Instance Created.
+2025-02-06 00:12:21
+
+Request: GET /api/auth/login
+Remote Address: ::1
+2025-02-06 00:12:21
+
+Middleware Pipeline Instance Destroyed.
+2025-02-06 00:12:31
+
+MiddleWare Pipleline Instance Created.
+2025-02-06 00:38:16
+
+Request: GET /api/auth/login/refresh-access-token
+Remote Address: ::1
+2025-02-06 00:38:16
+
+Middleware Pipeline Instance Destroyed.
+2025-02-06 00:38:20
+
+MiddleWare Pipleline Instance Created.
+2025-02-06 00:38:30
+
+Request: GET /api/auth/refresh-access-token
+Remote Address: ::1
+2025-02-06 00:38:30
+
+RefreshAccessToken Instance Created.
+2025-02-06 00:38:30
+
+RefreshAccessToken Instance Destroyed.
+2025-02-06 00:38:53
+
+Middleware Pipeline Instance Destroyed.
+2025-02-06 00:38:53
+
+MiddleWare Pipleline Instance Created.
+2025-02-06 00:39:01
+
+Request: GET /api/auth/refresh-access-token
+Remote Address: ::1
+2025-02-06 00:39:01
+
+RefreshAccessToken Instance Created.
+2025-02-06 00:39:01
+
+RefreshAccessToken Instance Destroyed.
+2025-02-06 00:39:22
+
+Middleware Pipeline Instance Destroyed.
+2025-02-06 00:39:22
+
+MiddleWare Pipleline Instance Created.
+2025-02-06 00:39:42
+
+Request: GET /api/auth/refresh-access-token
+Remote Address: ::1
+2025-02-06 00:39:42
+
+RefreshAccessToken Instance Created.
+2025-02-06 00:39:42
+
+RefreshAccessToken Instance Destroyed.
+2025-02-06 00:40:28
+
+Middleware Pipeline Instance Destroyed.
+2025-02-06 00:40:28
+

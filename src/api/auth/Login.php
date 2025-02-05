@@ -4,9 +4,9 @@ namespace ToDo\Api\Auth;
 use Exception;
 use Throwable;
 use ToDo\Api\AbstractRest;
-use ToDo\Context\AuthContext;
-use ToDo\Helper\Auth\AuthenticationHelper;
+use ToDo\Models\Response;
 use ToDo\Service\AuthenticationService;
+use ToDo\Utils\Utils;
 
 class Login extends AbstractRest
 {
@@ -19,39 +19,30 @@ class Login extends AbstractRest
     private function authenticate($email, $pass)
     {
         try {
-            if(!AuthenticationHelper::isVerifiedEmail($email))
+            if(!$this->authService->isVerifiedEmail($email))
             {
                 return 
                 ["error" => "Your email is not correct or verified. If your email is correct then check your mail to verify your email address."];
             }
-            $signInResult = $auth->signInWithEmailAndPassword($email, $pass);
-            $accesToken = $signInResult->accessToken();
-            if($accesToken == null) {
-                $accesToken = $signInResult->idToken();
-            }
-            $refreshToken = $signInResult->refreshToken();
-            return
-            [
-                "access_token" => $accesToken,
-                "refresh_token" => $refreshToken
-            ];
+            return $this->authService->signInWithEmailAndPassword($email, $pass);
         } catch(Throwable $ex) {
-            return ["error" => "Incorrect password!"];
+            Utils::log_error($ex->getMessage());
         }
     }
     private function generateToken()
     {
-        if(!($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST)))
-            throw new Exception("Error Processing Request");
+        // if(!($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST)))
+        //     throw new Exception("Error Processing Request");
         $email = $_POST['email'] ?? null;
         $pass = $_POST['password'] ?? null;
-        // $email = "hnayeem520@gmail.com";
-        // $pass = "";
+        $email = "hnayeem520@gmail.com";
+        $pass = "im-nayeem02";
         return self::authenticate($email, $pass);
     }
-    public function getResponse()
+    public function getResponse(): Response 
     {
-        return self::generateToken();
+        $token = self::generateToken();
+        return new Response(data: $token);
     }
 }
 ?>

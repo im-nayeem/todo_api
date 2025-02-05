@@ -2,6 +2,7 @@
 namespace ToDo\Api;
 
 use ToDo\AbstractExecutor;
+use ToDo\Models\Response;
 
 abstract class AbstractRest extends AbstractExecutor
 {
@@ -9,5 +10,5 @@ abstract class AbstractRest extends AbstractExecutor
     {
         
     }
-    protected abstract function getResponse();
+    protected abstract function getResponse(): Response;
 }

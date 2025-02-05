@@ -9,11 +9,11 @@ use ToDo\Helper\Auth\AuthenticationHelper;
 
 class AuthenticationService {
     private static ?AuthenticationService $instance = null;
-    private AuthContext $auth;
+    private $authContext;
 
     private function __construct()
     {
-        $this->auth = AuthContext::getInstance();
+        $this->authContext = AuthContext::getInstance();
     }
 
     public static function getInstance(): AuthenticationService
@@ -27,7 +27,7 @@ class AuthenticationService {
     public function isVerifiedEmail(string $email): bool
     {
         try {
-            $user = $this->auth->getUserByEmail($email)->emailVerified;
+            $user = $this->authContext->getUserByEmail($email)->emailVerified;
             return (bool) $user;
         } catch (Throwable $ex) {
             Utils::log_error($ex->getMessage());
@@ -39,7 +39,7 @@ class AuthenticationService {
     {
         try {
             $accessToken = AuthenticationHelper::getAccessTokenFromHeader();
-            $verifiedToken = $this->auth->verifyIdToken($accessToken, true);
+            $verifiedToken = $this->authContext->verifyIdToken($accessToken, true);
             $iss = $verifiedToken->claims()->get('iss');
 
             if ($iss !== AppConfig::TOKEN_ISSUER) {
@@ -54,14 +54,33 @@ class AuthenticationService {
         }
     }
 
+    public function signInWithEmailAndPassword(string $email, string $password): ?object
+    {
+        try {
+            $signInResult = $this->authContext->signInWithEmailAndPassword($email, $password);
+            $accessToken = $signInResult->accessToken();
+            if ($accessToken === null) {
+                $accessToken = $signInResult->idToken();
+            }
+            $refreshToken = $signInResult->refreshToken();
+            return (object) [
+                "access_token" => $accessToken,
+                "refresh_token" => $refreshToken
+            ];
+        } catch (Throwable $ex) {
+            Utils::log_error($ex->getMessage());
+            return ["error" => "Invalid password"];
+        }
+    }
+
     public function refreshAccessToken(): ?string
     {
         try {
-            $refreshToken = $this->getRefreshToken();
+            $refreshToken = AuthenticationHelper::getRefreshToken();
             if ($refreshToken === null) {
                 return null;
             }
-            $signInResult = $this->auth->signInWithRefreshToken($refreshToken);
+            $signInResult = $this->authContext->signInWithRefreshToken($refreshToken);
             return $signInResult->accessToken();
         } catch (Throwable $ex) {
             Utils::log_error($ex->getMessage());
@@ -75,7 +94,7 @@ class AuthenticationService {
             session_start();
         }
         if (!isset($_SESSION['user'])) {
-            $user = $this->auth->getUser($verifiedToken->claims()->get('sub'));
+            $user = $this->authContext->getUser($verifiedToken->claims()->get('sub'));
             $_SESSION['user'] = [
                 "name" => $user->displayName,
                 "email" => $user->email,

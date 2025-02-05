@@ -3,7 +3,7 @@ namespace ToDo\Helper\Auth;
 
 class AuthenticationHelper
 {
-    private static function getRefreshToken()
+    public static function getRefreshToken()
     {
         if(isset($_COOKIE['ref_token']))
             return $_COOKIE['ref_token'];
@@ -11,7 +11,7 @@ class AuthenticationHelper
             return null;
     }
 
-    private static function getAccessTokenFromHeader()
+    public static function getAccessTokenFromHeader()
     {
         if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
             $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
